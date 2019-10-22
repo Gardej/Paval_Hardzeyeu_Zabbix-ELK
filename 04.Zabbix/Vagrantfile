@@ -1,0 +1,28 @@
+# -*- mode: ruby -*
+# vi: set ft=ruby :
+
+BOX_IMAGE = "sbeliakou/centos"
+
+Vagrant.configure("2") do |config|
+    config.vm.define "serverone" do |subconfig|
+      subconfig.vm.box = BOX_IMAGE
+      subconfig.vm.hostname = "serverone"
+      subconfig.vm.network :private_network, ip: "192.168.56.77"
+      subconfig.vm.provider "virtualbox" do |vb|
+        vb.name = "serverone"
+        vb.memory = "2048"
+      end 
+      subconfig.vm.provision "shell", path: "script1.sh"
+    end
+
+    config.vm.define "servertwo" do |subconfig|
+      subconfig.vm.box = BOX_IMAGE
+      subconfig.vm.hostname = "servertwo"
+      subconfig.vm.network :private_network, ip: "192.168.56.177"
+      subconfig.vm.provider "virtualbox" do |vb|
+        vb.name = "servertwo"
+        vb.memory = "2048"
+      end
+      subconfig.vm.provision "shell", path: "script2.sh"
+    end
+end

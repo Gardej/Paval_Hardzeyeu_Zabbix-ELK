@@ -1,0 +1,9 @@
+transport.host: localhost
+
+network.host: 192.168.56.77
+
+http.port: 9200
+
+path.data: /var/lib/elasticsearch
+
+path.logs: /var/log/elasticsearch

@@ -1,0 +1,8 @@
+server.port: 5601
+
+server.host: 192.168.56.77
+
+elasticsearch.hosts: ["http://192.168.56.77:9200"]
+
+server.ssl.enabled: false
+
